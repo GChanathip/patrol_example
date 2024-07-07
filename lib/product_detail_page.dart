@@ -20,7 +20,10 @@ class ProductDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('Product Detail'),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,12 +44,14 @@ class ProductDetailPage extends StatelessWidget {
                 children: [
                   Text(
                     'user: ${product.sellerName}',
+                    key: const Key('product_detail_freelance_name'),
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                   const SizedBox(width: 16),
                   Icon(Icons.star, color: Colors.yellow.shade700),
                   Text(
                     product.rating.toString(),
+                    key: const Key('product_detail_rating'),
                     style: Theme.of(context).textTheme.labelMedium,
                   )
                 ],
@@ -56,6 +61,7 @@ class ProductDetailPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 'price: \$${product.price}',
+                key: const Key('product_detail_price'),
                 style: Theme.of(context).textTheme.labelMedium,
               ),
             ),

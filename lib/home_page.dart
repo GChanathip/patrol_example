@@ -1,11 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:patrol_example/entity.dart';
-import 'package:patrol_example/product_detail_page.dart';
+import 'package:patrol_example/freelance_listing_page.dart';
+import 'package:patrol_example/interact_with_native.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -15,6 +16,8 @@ class _MyHomePageState extends State<MyHomePage> {
   late final TextEditingController textEditingController;
 
   late List<Product> searchResult;
+  int pageIndex = 0;
+  bool isAndroid = Platform.isAndroid;
 
   @override
   void initState() {
@@ -23,73 +26,34 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState;
   }
 
-  void searchProduct() {
-    FocusScope.of(context).unfocus();
-    if (textEditingController.text.isEmpty) {
-      setState(() {
-        searchResult = Product.mockData;
-      });
-    } else {
-      setState(() {
-        searchResult = Product.mockData.where((item) {
-          final keyword = textEditingController.text.toLowerCase();
-          final result = item.jobName.toLowerCase().contains(textEditingController.text.toLowerCase());
-          print('item.jobName ${item.jobName}');
-          print('textEditingController.text ${textEditingController.text}');
-          print('result $result');
-          return result;
-        }).toList();
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      body: IndexedStack(
+        index: pageIndex,
+        children: const [
+          FreelanceListPage(),
+          InteractWithNativePage(),
+        ],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    key: const Key('homepage_search_field'),
-                    controller: textEditingController,
-                    textInputAction: TextInputAction.done,
-                    onSubmitted: (_) => searchProduct(),
-                    // decoration: InputDecoration(),
-                  ),
-                ),
-                ElevatedButton.icon(
-                  key: const Key('homepage_search_button'),
-                  onPressed: searchProduct,
-                  label: const Icon(Icons.search),
-                ),
-              ],
-            ),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        currentIndex: pageIndex,
+        onTap: (index) {
+          setState(() {
+            pageIndex = index;
+          });
+        },
+        items: [
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.work),
+            label: 'Find Freelancer',
           ),
-          Expanded(
-            child: ListView.separated(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              itemCount: searchResult.length,
-              itemBuilder: (context, index) {
-                final item = searchResult[index];
-                return ListTile(
-                  onTap: () => Navigator.of(context).push(ProductDetailPage.page(item)),
-                  leading: Image.asset(item.imagePath),
-                  title: Text(item.jobName),
-                  subtitle: Text(item.description, maxLines: 1, overflow: TextOverflow.ellipsis),
-                );
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return const SizedBox(height: 8);
-              },
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(isAndroid ? Icons.android : Icons.settings),
+            label: 'Native',
           ),
         ],
       ),

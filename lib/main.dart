@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:patrol_example/home_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreenAccent),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Freelance Marketplace'),
+      home: const MyHomePage(),
     );
   }
 }

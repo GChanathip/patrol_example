@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:patrol_example/entity.dart';
 
-class ProductDetailPage extends StatelessWidget {
+class ProductDetail extends StatelessWidget {
   final Product product;
 
   static PageRoute<void> page(Product product) {
     return MaterialPageRoute(
-      builder: (context) => ProductDetailPage(product: product),
+      builder: (context) => ProductDetail(product: product),
       settings: RouteSettings(
         name: routeName,
       ),
@@ -15,7 +15,7 @@ class ProductDetailPage extends StatelessWidget {
 
   static String routeName = '/product_detail';
 
-  const ProductDetailPage({super.key, required this.product});
+  const ProductDetail({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {

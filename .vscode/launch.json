@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "patrol_example",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "patrol_example (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "patrol_example (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "attach debugger",
+            "request": "attach",
+            "type": "dart",
+            "cwd": "integration_test",
+            "vmServiceUri": "${command:dart.promptForVmService}"
+        }
+    ]
+}

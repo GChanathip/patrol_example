@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class InteractWithNativePage extends StatelessWidget {
   const InteractWithNativePage({super.key});
@@ -14,14 +15,22 @@ class InteractWithNativePage extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            title: Text('Open Web View'),
+            title: const Text('Open Web View'),
             onTap: () {
-              ChromeSafariBrowser().open(url: WebUri("https://fastwork.co"));
+              ChromeSafariBrowser().open(url: WebUri("https://jobboard.fastwork.co/"));
             },
           ),
           ListTile(
-            title: Text('Open Image Picker'),
-            onTap: () {},
+            title: const Text('Request Camera Permission'),
+            onTap: () {
+              Permission.camera.request();
+            },
+          ),
+          ListTile(
+            title: const Text('Request Notification Permission'),
+            onTap: () {
+              Permission.notification.request();
+            },
           ),
         ],
       ),

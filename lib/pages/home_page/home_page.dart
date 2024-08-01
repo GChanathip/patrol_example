@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:patrol_example/entity.dart';
-import 'package:patrol_example/freelance_listing_page.dart';
-import 'package:patrol_example/interact_with_native.dart';
+import 'package:patrol_example/pages/freelance_listing_page/freelance_listing_page.dart';
+import 'package:patrol_example/pages/interact_with_native_page/interact_with_native.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});

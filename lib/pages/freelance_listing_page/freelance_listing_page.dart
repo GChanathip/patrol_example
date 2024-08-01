@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:patrol_example/entity.dart';
-import 'package:patrol_example/product_detail_page.dart';
+import 'package:patrol_example/pages/freelance_detail_page/product_detail_page.dart';
 
 class FreelanceListPage extends StatefulWidget {
   const FreelanceListPage({super.key});
@@ -43,13 +43,14 @@ class _FreelanceListPageState extends State<FreelanceListPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Freelance Marketplace'),
+        title: const Text('Freelance Marketplace'),
       ),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Row(
+              mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
                   child: TextField(

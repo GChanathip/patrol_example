@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:patrol_example/home_page.dart';
+import 'package:flutter/services.dart';
+import 'package:patrol_example/pages/home_page/home_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +19,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreenAccent),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: GestureDetector(
+        onTap: () {
+          SystemChannels.textInput.invokeMethod('TextInput.hide');
+        },
+        child: const MyHomePage(),
+      ),
     );
   }
 }

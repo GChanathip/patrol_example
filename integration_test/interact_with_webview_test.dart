@@ -8,13 +8,10 @@ void main() {
       app.main();
       await $('Native').tap();
       await $('Open Web View').tap();
+      await $.native2.tap(NativeSelector(
+          android: AndroidSelector(text: 'ค้นหาหมวดหมู่งาน'), ios: IOSSelector(title: 'ค้นหาหมวดหมู่งาน')));
       await $.native2
-          .tap(NativeSelector(android: AndroidSelector(text: 'เข้าสู่ระบบ'), ios: IOSSelector(title: "เข้าสู่ระบบ")));
-      await $.native.enterTextByIndex('your_email', index: 0);
-      await $.native2.tap(NativeSelector(android: AndroidSelector(text: 'ถัดไป'), ios: IOSSelector(title: "ถัดไป")));
-      await $.native.enterTextByIndex('your_password', index: 0);
-      await $.native2
-          .tap(NativeSelector(android: AndroidSelector(text: 'เข้าสู่ระบบ'), ios: IOSSelector(title: "เข้าสู่ระบบ")));
+          .tap(NativeSelector(android: AndroidSelector(text: 'กราฟิกดีไซน์'), ios: IOSSelector(title: 'กราฟิกดีไซน์')));
     },
   );
 }

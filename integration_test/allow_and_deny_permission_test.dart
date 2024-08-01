@@ -3,18 +3,17 @@ import 'package:patrol_example/main.dart' as app;
 
 void main() {
   patrolTest(
-    'Interact with WebView',
-        ($) async {
+    'Allow and deny permission',
+    ($) async {
       app.main();
       await $('Native').tap();
       await $('Request Camera Permission').tap();
-      final isCameraPermissionVisible = await $.native2.isPermissionDialogVisible(timeout: const Duration(seconds: 2));
+      final isCameraPermissionVisible = await $.native2.isPermissionDialogVisible();
       if (isCameraPermissionVisible) {
         await $.native2.grantPermissionWhenInUse();
       }
       await $('Request Notification Permission').tap();
-      final isNotificationPermissionVisible =
-      await $.native2.isPermissionDialogVisible(timeout: const Duration(seconds: 2));
+      final isNotificationPermissionVisible = await $.native2.isPermissionDialogVisible();
       if (isNotificationPermissionVisible) {
         await $.native2.denyPermission();
       }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:patrol_example/entity.dart';
-import 'package:patrol_example/pages/freelance_detail_page/product_detail_page.dart';
+import 'package:patrol_example/pages/freelance_listing_page/freelance_detail_page/product_detail_page.dart';
 
 class FreelanceListPage extends StatefulWidget {
   const FreelanceListPage({super.key});
@@ -64,7 +64,8 @@ class _FreelanceListPageState extends State<FreelanceListPage> {
                 ElevatedButton.icon(
                   key: const Key('homepage_search_button'),
                   onPressed: searchProduct,
-                  label: const Icon(Icons.search),
+                  label: Text("Search"),
+                  icon: const Icon(Icons.search),
                 ),
               ],
             ),

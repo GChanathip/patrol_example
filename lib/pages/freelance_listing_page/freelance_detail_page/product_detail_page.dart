@@ -21,6 +21,7 @@ class ProductDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const BackButton(),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Product Detail'),
       ),

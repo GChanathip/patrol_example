@@ -1,6 +1,5 @@
 // ignore_for_file: unused_local_variable
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:patrol/patrol.dart';
@@ -47,13 +46,14 @@ void main() {
       await $("ไปต่อ").waitUntilVisible();
 
       /// Assertion
-      
-      expect($(ElevatedButton), findsOneWidget);
 
-      expect($(ListTile).$(Text).text, 'Web Developement');
+      expect($(TextField), findsOneWidget);
+
+      expect($(ListTile).$(Text).text, 'Website Development');
+
+      expect($(ListTile).$(Text).at(1).text, 'Build a responsive website using HTML, CSS, and JavaScript.');
 
       expect($(ListTile).$(Text).at(1).text, startsWith('Build a responsive'));
-    
     },
   );
 }

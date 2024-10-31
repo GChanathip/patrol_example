@@ -241,7 +241,7 @@ packages:
     source: hosted
     version: "1.9.0"
   patrol:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: patrol
       sha256: "4e1d239412b81124d28381a953951ccd8fff2841afd8420a052a458bf5534510"
@@ -249,7 +249,7 @@ packages:
     source: hosted
     version: "3.10.0"
   patrol_finders:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: patrol_finders
       sha256: "6bf2c3093fbccd02f80f73fafc1bd021d76410cbab6e329be220b5e3bc58f072"

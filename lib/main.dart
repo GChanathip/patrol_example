@@ -4,6 +4,7 @@ import 'package:patrol_example/pages/home_page/home_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 

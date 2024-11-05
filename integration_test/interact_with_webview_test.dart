@@ -9,12 +9,18 @@ void main() {
       app.main();
       await $('Native').tap();
       await $('Open Web View').tap();
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(Duration(seconds: 7));
       await $.native2.swipe(from: Offset(0.6, 0.5), to: Offset(0.6, 0.45));
+      await Future.delayed(Duration(seconds: 3));
+
       await $.native2.tap(NativeSelector(
           android: AndroidSelector(text: 'ค้นหาหมวดหมู่งาน'), ios: IOSSelector(title: 'ค้นหาหมวดหมู่งาน')));
       await $.native2
           .tap(NativeSelector(android: AndroidSelector(text: 'กราฟิกดีไซน์'), ios: IOSSelector(title: 'กราฟิกดีไซน์')));
+
+      // /// Tested with Android
+      await $.native.tap(Selector(resourceId: 'com.android.chrome:id/close_button'));
+      await $.pumpAndTrySettle();
     },
   );
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:patrol_example/main.dart' as app;
 
@@ -17,9 +16,11 @@ void main() {
       // Tap on Camera Permission button
       await tester.tap(find.text('Request Camera Permission'));
       await tester.pumpAndSettle();
+      // TODO: Tap allow permission here
 
       await tester.tap(find.text('Request Notification Permission'));
       await tester.pumpAndSettle();
+      // TODO: Tap allow permission here
     },
   );
 }

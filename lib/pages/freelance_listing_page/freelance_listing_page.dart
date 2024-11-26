@@ -21,7 +21,7 @@ class _FreelanceListPageState extends State<FreelanceListPage> {
   }
 
   void searchProduct() {
-    FocusScope.of(context).unfocus();
+
     if (textEditingController.text.isEmpty) {
       setState(() {
         searchResult = Product.mockData;

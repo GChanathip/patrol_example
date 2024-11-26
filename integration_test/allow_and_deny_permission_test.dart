@@ -8,15 +8,15 @@ void main() {
       app.main();
       await $('Native').tap();
       await $('Request Camera Permission').tap();
-      // final isCameraPermissionVisible = await $.native2.isPermissionDialogVisible();
-      // if (isCameraPermissionVisible) {
-      //   await $.native2.grantPermissionWhenInUse();
-      // }
-      // await $('Request Notification Permission').tap();
-      // final isNotificationPermissionVisible = await $.native2.isPermissionDialogVisible();
-      // if (isNotificationPermissionVisible) {
-      //   await $.native2.denyPermission();
-      // }
+      final isCameraPermissionVisible = await $.native2.isPermissionDialogVisible();
+      if (isCameraPermissionVisible) {
+        await $.native2.grantPermissionWhenInUse();
+      }
+      await $('Request Notification Permission').tap();
+      final isNotificationPermissionVisible = await $.native2.isPermissionDialogVisible();
+      if (isNotificationPermissionVisible) {
+        await $.native2.denyPermission();
+      }
     },
   );
 }

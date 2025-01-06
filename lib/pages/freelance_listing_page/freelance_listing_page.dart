@@ -21,7 +21,6 @@ class _FreelanceListPageState extends State<FreelanceListPage> {
   }
 
   void searchProduct() {
-
     if (textEditingController.text.isEmpty) {
       setState(() {
         searchResult = Product.mockData;
